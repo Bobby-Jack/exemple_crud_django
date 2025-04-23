@@ -1,0 +1,32 @@
+<table>
+    <tr>
+        <th>NAME</th>
+        <th>PRICE</th>
+        <th>COLOR</th>
+        <th>QUANTITY</th>
+        <th>OPTION</th>
+    </tr>
+    <tbody>
+        {% for product in all_product %}
+          <tr class="{% if product.quantity == 0 %} disable {% endif %}" >
+            <th>{{product.name}}</th>
+            <th>{{product.price}} €</th>
+            <th style="background-color:{{product.color}};">{{product.color}}</th>
+            <th>{{product.quantity}}</th>
+            <th>
+                <a href={% url "detailProduct" product.id %} >detail</a>
+            </th>
+          </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href={%url 'createProduct' %}>create product</a>
+
+<style>
+    .disable{
+        opacity : 0.5;
+    }
+
+
+</style>
