@@ -22,3 +22,17 @@ def create_product(request):
     else:
         form = ProductForm()
         return render(request, 'createProduct.html', {'form':form})
+
+def update_product(request, id):
+    target_product = Product.objects.get(id=id)
+    form = ProductForm(request.POST or None, instance=target_product)
+    if form.is_valid():
+        form.save()
+        return redirect("/")
+    return render(request, "updateProduct.html", {"form":form})
+
+
+def delete_product(request, id):
+    target_product = Product.objects.get(id=id)
+    target_product.delete()
+    return redirect("/")

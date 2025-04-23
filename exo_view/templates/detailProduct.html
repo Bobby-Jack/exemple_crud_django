@@ -1,4 +1,13 @@
 <h1>{{product.name}}</h1>
 <h2>for {{product.price}} €</h2>
 
+
+
+<a href={%url "updateProduct" product.id %}>update</a>
+
+<a href={%url "deleteProduct" product.id %}>delete</a>
+
+
+
 <a href={%url "allProducts"%}>return to allProduct</a>
+

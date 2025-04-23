@@ -22,5 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.get_all_product, name='allProducts'),
     path('product/<int:id>', views.get_product, name="detailProduct"),
-    path('createProduct', views.create_product, name="createProduct")
+    path('createProduct', views.create_product, name="createProduct"),
+    path('updateProduct/<int:id>', views.update_product, name="updateProduct"),
+    path('deleteProduct/<int:id>', views.delete_product, name="deleteProduct"),
 ]
